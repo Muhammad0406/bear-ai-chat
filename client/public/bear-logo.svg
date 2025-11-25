@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Main bear head -->
+  <circle cx="32" cy="35" r="25" fill="#DEB887"/>
+  
+  <!-- Left ear -->
+  <circle cx="18" cy="22" r="10" fill="#DEB887"/>
+  
+  <!-- Right ear -->
+  <circle cx="46" cy="22" r="10" fill="#DEB887"/>
+  
+  <!-- Inner left ear -->
+  <circle cx="18" cy="22" r="5" fill="#D2B48C"/>
+  
+  <!-- Inner right ear -->
+  <circle cx="46" cy="22" r="5" fill="#D2B48C"/>
+  
+  <!-- Left eye -->
+  <circle cx="25" cy="32" r="3" fill="#000"/>
+  
+  <!-- Right eye -->
+  <circle cx="39" cy="32" r="3" fill="#000"/>
+  
+  <!-- Nose -->
+  <circle cx="32" cy="38" r="2" fill="#000"/>
+  
+  <!-- Mouth -->
+  <path d="M27 44 Q32 47 37 44" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Left eye highlight -->
+  <circle cx="26" cy="30" r="1" fill="#fff"/>
+  
+  <!-- Right eye highlight -->
+  <circle cx="40" cy="30" r="1" fill="#fff"/>
+</svg>
