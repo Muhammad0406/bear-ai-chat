@@ -200,51 +200,126 @@ function checkSubjectRelevance(subject, question) {
   
   const subjectKeywords = {
     'Math': [
-      'algebra', 'geometry', 'calculus', 'trigonometry', 'statistics', 'probability',
-      'equation', 'formula', 'solve', 'calculate', 'derivative', 'integral', 'function',
-      'variable', 'graph', 'theorem', 'proof', 'number', 'fraction', 'decimal',
-      'polynomial', 'logarithm', 'matrix', 'vector', 'limit', 'infinite', 'sum',
-      'product', 'ratio', 'percentage', 'square root', 'exponent', 'factorial'
+      // Basic Math
+      'math', 'mathematics', 'number', 'numbers', 'digit', 'calculate', 'computation', 'arithmetic',
+      // Algebra
+      'algebra', 'equation', 'variable', 'solve', 'formula', 'expression', 'coefficient', 'polynomial', 'quadratic', 'linear', 'exponential', 'logarithm', 'log', 'ln',
+      // Geometry
+      'geometry', 'triangle', 'circle', 'square', 'rectangle', 'polygon', 'angle', 'perimeter', 'area', 'volume', 'diameter', 'radius', 'circumference', 'parallel', 'perpendicular', 'pythagorean',
+      // Calculus
+      'calculus', 'derivative', 'integral', 'limit', 'differentiation', 'integration', 'function', 'slope', 'tangent', 'maximum', 'minimum', 'optimization',
+      // Trigonometry
+      'trigonometry', 'sin', 'cos', 'tan', 'sine', 'cosine', 'tangent', 'radian', 'degree', 'hypotenuse',
+      // Statistics & Probability
+      'statistics', 'probability', 'mean', 'median', 'mode', 'variance', 'deviation', 'correlation', 'distribution', 'sample', 'population', 'percentage', 'ratio', 'proportion',
+      // Advanced Math
+      'matrix', 'vector', 'complex', 'theorem', 'proof', 'infinity', 'infinite', 'factorial', 'permutation', 'combination', 'sequence', 'series', 'sum', 'product'
     ],
     'Biology': [
-      'biology', 'cell', 'dna', 'rna', 'protein', 'enzyme', 'genetics', 'evolution',
-      'organism', 'ecosystem', 'photosynthesis', 'respiration', 'metabolism',
-      'anatomy', 'physiology', 'taxonomy', 'species', 'mutation', 'chromosome',
-      'mitosis', 'meiosis', 'bacteria', 'virus', 'plant', 'animal', 'fungi',
-      'biodiversity', 'adaptation', 'natural selection', 'heredity', 'gene'
+      // General Biology
+      'biology', 'biological', 'life', 'living', 'organism', 'organisms', 'species', 'evolution', 'natural selection', 'adaptation', 'survival',
+      // Cell Biology
+      'cell', 'cells', 'cellular', 'nucleus', 'cytoplasm', 'membrane', 'organelle', 'mitochondria', 'ribosome', 'endoplasmic', 'golgi', 'lysosome', 'vacuole', 'chloroplast',
+      // Genetics
+      'dna', 'rna', 'gene', 'genes', 'genetic', 'genetics', 'chromosome', 'allele', 'mutation', 'heredity', 'inheritance', 'dominant', 'recessive', 'genotype', 'phenotype',
+      // Molecular Biology
+      'protein', 'proteins', 'enzyme', 'enzymes', 'amino acid', 'nucleotide', 'codon', 'transcription', 'translation', 'replication',
+      // Cell Division
+      'mitosis', 'meiosis', 'division', 'prophase', 'metaphase', 'anaphase', 'telophase', 'cytokinesis', 'gamete', 'zygote',
+      // Physiology
+      'physiology', 'anatomy', 'organ', 'tissue', 'system', 'circulation', 'respiratory', 'digestive', 'nervous', 'endocrine', 'immune', 'skeletal', 'muscular',
+      // Ecology
+      'ecology', 'ecosystem', 'environment', 'habitat', 'population', 'community', 'biodiversity', 'food chain', 'food web', 'predator', 'prey', 'symbiosis', 'parasitism', 'mutualism',
+      // Plant Biology
+      'plant', 'plants', 'photosynthesis', 'chlorophyll', 'leaf', 'root', 'stem', 'flower', 'seed', 'pollen', 'transpiration',
+      // Animal Biology
+      'animal', 'animals', 'mammal', 'bird', 'reptile', 'amphibian', 'fish', 'invertebrate', 'vertebrate',
+      // Microbiology
+      'bacteria', 'virus', 'microbe', 'fungi', 'yeast', 'pathogen', 'antibiotic', 'infection',
+      // Biochemistry
+      'metabolism', 'respiration', 'fermentation', 'glycolysis', 'krebs', 'electron transport', 'atp', 'glucose', 'carbohydrate', 'lipid'
     ],
     'Physics': [
-      'force', 'energy', 'motion', 'velocity', 'acceleration', 'gravity', 'friction',
-      'momentum', 'wave', 'light', 'sound', 'electricity', 'magnetism', 'circuit',
-      'voltage', 'current', 'resistance', 'power', 'work', 'heat', 'temperature',
-      'pressure', 'mass', 'weight', 'density', 'volume', 'time', 'speed', 'newton',
-      'joule', 'watt', 'volt', 'ohm', 'quantum', 'atom', 'electron', 'proton', 'neutron'
+      // General Physics
+      'physics', 'physical', 'force', 'forces', 'energy', 'power', 'work', 'motion', 'movement',
+      // Mechanics
+      'velocity', 'acceleration', 'speed', 'displacement', 'distance', 'time', 'mass', 'weight', 'gravity', 'friction', 'momentum', 'impulse', 'collision', 'elastic', 'inelastic',
+      // Thermodynamics
+      'heat', 'temperature', 'thermal', 'entropy', 'enthalpy', 'pressure', 'volume', 'gas', 'liquid', 'solid', 'phase', 'boiling', 'melting', 'freezing',
+      // Waves and Sound
+      'wave', 'waves', 'frequency', 'wavelength', 'amplitude', 'sound', 'acoustic', 'vibration', 'resonance', 'doppler', 'interference', 'diffraction', 'refraction',
+      // Light and Optics
+      'light', 'optics', 'photon', 'electromagnetic', 'spectrum', 'reflection', 'lens', 'mirror', 'prism', 'laser', 'radiation', 'infrared', 'ultraviolet', 'visible',
+      // Electricity and Magnetism
+      'electricity', 'electric', 'electrical', 'current', 'voltage', 'resistance', 'circuit', 'ohm', 'ampere', 'volt', 'watt', 'capacitor', 'inductor', 'transformer',
+      'magnetism', 'magnetic', 'magnet', 'field', 'flux', 'pole', 'dipole',
+      // Modern Physics
+      'quantum', 'relativity', 'nuclear', 'radioactive', 'decay', 'fission', 'fusion', 'particle', 'electron', 'proton', 'neutron', 'photon', 'quark', 'atom', 'atomic',
+      // Units and Measurements
+      'meter', 'kilogram', 'second', 'newton', 'joule', 'pascal', 'hertz', 'tesla', 'weber', 'coulomb', 'farad', 'henry'
     ],
     'Chemistry': [
-      'element', 'compound', 'molecule', 'atom', 'ion', 'bond', 'reaction', 'equation',
-      'solution', 'solvent', 'solute', 'concentration', 'molarity', 'ph', 'acid',
-      'base', 'salt', 'oxidation', 'reduction', 'catalyst', 'enzyme', 'organic',
-      'inorganic', 'carbon', 'hydrogen', 'oxygen', 'nitrogen', 'periodic table',
-      'electron', 'proton', 'neutron', 'isotope', 'chemical', 'formula'
+      // General Chemistry
+      'chemistry', 'chemical', 'substance', 'matter', 'element', 'elements', 'compound', 'compounds', 'mixture',
+      // Atomic Structure
+      'atom', 'atoms', 'atomic', 'nucleus', 'electron', 'proton', 'neutron', 'orbital', 'shell', 'subshell', 'quantum', 'isotope', 'ion', 'cation', 'anion',
+      // Periodic Table
+      'periodic', 'table', 'group', 'period', 'metal', 'nonmetal', 'metalloid', 'alkali', 'alkaline', 'halogen', 'noble gas', 'transition',
+      'hydrogen', 'helium', 'lithium', 'carbon', 'nitrogen', 'oxygen', 'fluorine', 'sodium', 'chlorine', 'iron', 'copper', 'gold', 'silver',
+      // Chemical Bonding
+      'bond', 'bonding', 'ionic', 'covalent', 'metallic', 'polar', 'nonpolar', 'electronegativity', 'valence', 'lewis', 'vsepr',
+      // Chemical Reactions
+      'reaction', 'reactions', 'equation', 'reactant', 'product', 'catalyst', 'enzyme', 'equilibrium', 'rate', 'kinetics', 'mechanism',
+      'synthesis', 'decomposition', 'combustion', 'oxidation', 'reduction', 'redox', 'precipitation', 'neutralization',
+      // Solutions and Acids/Bases
+      'solution', 'solvent', 'solute', 'concentration', 'molarity', 'molality', 'solubility', 'saturation', 'dilution',
+      'acid', 'base', 'ph', 'buffer', 'titration', 'indicator', 'salt', 'hydrolysis',
+      // Organic Chemistry
+      'organic', 'hydrocarbon', 'alkane', 'alkene', 'alkyne', 'aromatic', 'benzene', 'functional group', 'alcohol', 'aldehyde', 'ketone', 'carboxylic', 'ester', 'amine',
+      'polymer', 'monomer', 'isomer', 'stereoisomer', 'chirality',
+      // Physical Chemistry
+      'thermodynamics', 'enthalpy', 'entropy', 'gibbs', 'spontaneous', 'endothermic', 'exothermic', 'calorimetry',
+      // States of Matter
+      'gas', 'liquid', 'solid', 'plasma', 'phase', 'boiling', 'melting', 'sublimation', 'vapor', 'pressure', 'temperature',
+      // Laboratory
+      'experiment', 'lab', 'beaker', 'flask', 'pipette', 'burette', 'spectroscopy', 'chromatography', 'distillation'
     ]
   };
 
-  // Check if question contains subject-related keywords
+  // Much more flexible keyword checking
   const keywords = subjectKeywords[subject] || [];
-  const hasRelevantKeywords = keywords.some(keyword => 
-    questionLower.includes(keyword) || 
-    questionLower.includes(keyword.replace(' ', ''))
-  );
+  const questionWords = questionLower.split(/\s+/);
+  
+  // Check for exact keyword matches or partial matches
+  const hasRelevantKeywords = keywords.some(keyword => {
+    // Exact match
+    if (questionLower.includes(keyword.toLowerCase())) return true;
+    // Check individual words for partial matches
+    return questionWords.some(word => {
+      // Remove punctuation for better matching
+      const cleanWord = word.replace(/[^\w]/g, '');
+      const cleanKeyword = keyword.replace(/[^\w]/g, '');
+      return cleanWord.includes(cleanKeyword) || cleanKeyword.includes(cleanWord);
+    });
+  });
 
-  // Also check for mathematical symbols or science notation
-  const hasMathSymbols = /[+\-*/=<>^√∫∑π∞]|\b(sin|cos|tan|log|ln)\b/.test(questionLower);
+  // Special patterns for each subject
+  const hasSpecialPatterns = {
+    'Math': /[+\-*/=<>^√∫∑π∞%]|\b(sin|cos|tan|log|ln|sqrt|\d+)\b|[\d\(\)\[\]]/,
+    'Biology': /\b(bio|life|live|grow|organ|system|process|cellular|molecular)\w*/i,
+    'Physics': /\b(phys|mechan|electric|magnetic|quantum|nuclear|thermal|optic|acoustic)\w*/i,
+    'Chemistry': /\b(chem|molecular|atomic|periodic|react|bond|acid|base|organic)\w*/i
+  };
+
+  // Check for mathematical symbols or science notation
+  const hasRelevantPatterns = hasSpecialPatterns[subject]?.test(questionLower) || false;
+
+  // More lenient validation - if it has keywords OR patterns OR looks academic
+  const hasAcademicTerms = /\b(what|how|why|explain|define|calculate|solve|find|determine|analyze|compare|describe)\b/i.test(questionLower);
   const hasNumbers = /\d/.test(question);
-
-  if (subject === 'Math' && (hasRelevantKeywords || hasMathSymbols || (hasNumbers && questionLower.includes('solve')))) {
-    return { isValid: true, message: '' };
-  }
-
-  if (subject !== 'Math' && hasRelevantKeywords) {
+  
+  // Allow questions with academic language even without specific keywords
+  if (hasRelevantKeywords || hasRelevantPatterns || (hasAcademicTerms && (hasNumbers || questionLower.length > 10))) {
     return { isValid: true, message: '' };
   }
 
