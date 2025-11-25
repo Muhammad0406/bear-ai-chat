@@ -56,25 +56,36 @@ app.post('/api/chat', async (req, res) => {
 
 IMPORTANT: Only answer questions specifically related to ${subject}. If asked about other subjects, politely redirect them to use the appropriate subject tab.
 
-FORMAT YOUR RESPONSES FOR EASY READING:
-- Use clear headings (## Main Topic, ### Subtopic)
-- Break information into bullet points using •
-- Add blank lines between sections for breathing room
-- Use numbered steps for processes (1., 2., 3.)
-- Keep paragraphs short and digestible (2-3 sentences max)
-- Use **bold** for key concepts and important terms
-- Add proper spacing between different topics
+FORMATTING REQUIREMENTS - Structure all responses like this:
+## 🧠 [Topic Name]
 
-Your responses should include:
-1. **Clear Definition** - What is the concept?
-2. **Step-by-Step Explanation** - How does it work?
-3. **Real-World Examples** - Where do we see this?
-4. **Key Formulas/Principles** (if relevant) - Important equations
-5. **Common Misconceptions** - What students often get wrong
-6. **Study Tips** - How to remember and practice this
-7. **Practice Question** - A simple problem to try
+### 📖 Definition  
+Clear, concise explanation of the concept.
 
-Format everything like ChatGPT - clean, well-spaced, and easy to scan.` 
+### 🔍 Key Concepts:
+• **Concept 1** - Explanation with context
+• **Concept 2** - Explanation with context
+• **Concept 3** - Explanation with context
+
+### ⚙️ Step-by-Step Process:
+1. **Step 1** - What happens first
+2. **Step 2** - What happens next  
+3. **Step 3** - Final result/outcome
+
+### 💡 Important Points:
+✅ **Key Takeaway:** Most important thing to remember
+✅ **Study Tip:** How to learn/practice this effectively
+⚠️ **Common Error:** What students often get wrong
+
+### 🎯 Real-World Example:
+[Provide a concrete, relatable example]
+
+### 📊 Quick Summary:
+• Main point 1
+• Main point 2  
+• Main point 3
+
+Always use emojis, headers, bullet points, checkmarks, and clear sections to make responses easy to scan and understand.` 
       };
       
       const payload = {
@@ -104,20 +115,36 @@ Format everything like ChatGPT - clean, well-spaced, and easy to scan.`
 
 IMPORTANT: Only answer questions related to ${subject}. If asked about other subjects, politely redirect them.
 
-Response Format Requirements:
-- Keep explanations SHORT and EASY-TO-UNDERSTAND
-- Use BULLET POINTS (•) for main points
-- Write in simple, clear language
-- Structure your response like this:
+FORMATTING REQUIREMENTS - Make responses look like this example:
+## 🔬 [Topic Name]
 
-**Topic Name**
-Brief 1-2 sentence introduction.
+### 📖 Definition
+Brief, clear explanation of the concept.
 
-**Main Points:**
-• First key point - simple explanation
-• Second key point - simple explanation  
-• Third key point - simple explanation
-• Fourth key point - simple explanation
+### 🔍 Key Points:
+• **Point 1** - Simple explanation with example
+• **Point 2** - Simple explanation with example  
+• **Point 3** - Simple explanation with example
+
+### ⚙️ How It Works:
+1. **Step 1** - Clear action or process
+2. **Step 2** - Next logical step
+3. **Step 3** - Final outcome
+
+### 💡 Important Notes:
+✅ **Remember:** Key takeaway point
+✅ **Tip:** Helpful study suggestion
+⚠️ **Common Mistake:** What to avoid
+
+### 🎯 Quick Example:
+[Provide a simple, relatable example]
+
+### 📚 Study Tips:
+• Practice method 1
+• Practice method 2
+• How to remember this concept
+
+Always use emojis, bullet points, checkmarks, and clear headings to make content scannable and engaging.`;
 
 **Why it matters:**
 Quick sentence about importance or real-world application.
@@ -385,7 +412,7 @@ function generateDetailedFallbackReply(subject, question) {
   response += `${intro}\n\n`;
   
   if (question && question.trim().length > 0) {
-    response += `**Your Question:** "${question}"\n\n`;
+    response += `### 📝 Your Question\n"${question}"\n\n`;
     response += `I'd be happy to help you with this ${subject.toLowerCase()} topic! Here's how I can assist:\n\n`;
   }
   
@@ -395,17 +422,17 @@ function generateDetailedFallbackReply(subject, question) {
   });
   
   response += `## 💡 How to Get the Best Help\n\n`;
-  response += `• **Be specific** about what you're struggling with\n\n`;
-  response += `• **Include details** like equations or formulas you're working with\n\n`;
-  response += `• **Mention your level** (high school, college, etc.)\n\n`;
-  response += `• **Ask follow-up questions** for deeper understanding\n\n`;
+  response += `✅ **Be specific** about what you're struggling with\n\n`;
+  response += `✅ **Include details** like equations or formulas you're working with\n\n`;
+  response += `✅ **Mention your level** (high school, college, etc.)\n\n`;
+  response += `✅ **Ask follow-up questions** for deeper understanding\n\n`;
   
   response += `## 🎯 Practice Suggestion\n\n`;
   response += `Try explaining a ${subject.toLowerCase()} concept you recently learned to someone else (or even to yourself out loud). `;
   response += `This helps identify areas where your understanding might need strengthening.\n\n`;
   
   response += `---\n\n`;
-  response += `**Ready to learn?** Ask me any specific ${subject.toLowerCase()} questions, and I'll provide detailed, step-by-step explanations! 🚀`;
+  response += `**🚀 Ready to learn?** Ask me any specific ${subject.toLowerCase()} questions, and I'll provide detailed, step-by-step explanations!`;
   
   return response;
 }
