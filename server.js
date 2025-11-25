@@ -54,7 +54,7 @@ app.post('/api/chat', async (req, res) => {
         role: 'system', 
         content: `You are BearBrain.ai, a comprehensive and detailed tutor specialized in ${subject}. 
 
-IMPORTANT: Only answer questions related to ${subject}. If asked about other subjects, politely redirect them to use the appropriate subject tab.
+IMPORTANT: Only answer questions specifically related to ${subject}. If asked about other subjects, politely redirect them to use the appropriate subject tab.
 
 FORMAT YOUR RESPONSES FOR EASY READING:
 - Use clear headings (## Main Topic, ### Subtopic)
@@ -255,8 +255,8 @@ function checkSubjectRelevance(subject, question) {
 
 Please switch to the appropriate subject tab above:
 • 📊 Math - for mathematics, algebra, calculus, statistics
-• 🔬 Science - for biology, chemistry, earth science  
-• ⚛️ Physics - for mechanics, electricity, waves, energy
+• 🧬 Biology - for living organisms, cells, genetics, ecosystems
+• ⚡ Physics - for mechanics, electricity, waves, energy
 • 🧪 Chemistry - for reactions, molecules, elements, compounds
 
 Then ask your question in the correct subject area, and I'll provide a detailed explanation!`
@@ -267,7 +267,7 @@ Then ask your question in the correct subject area, and I'll provide a detailed 
 function generateDetailedFallbackReply(subject, question) {
   const subjectIntros = {
     'Math': 'Mathematics is the foundation of logical thinking and problem-solving.',
-    'Science': 'Science helps us understand the natural world through observation and experimentation.',
+    'Biology': 'Biology is the study of living organisms and their interactions with each other and their environment.',
     'Physics': 'Physics explains how matter and energy interact in our universe.',
     'Chemistry': 'Chemistry studies the composition, structure, and behavior of matter.'
   };
@@ -280,12 +280,12 @@ function generateDetailedFallbackReply(subject, question) {
       'Check your work by substituting answers back into original equations',
       'Understand the "why" behind formulas, not just memorize them'
     ],
-    'Science': [
-      'Connect new concepts to real-world examples',
-      'Use diagrams and flowcharts to map processes',
-      'Practice explaining concepts in your own words',
-      'Make connections between different topics',
-      'Keep a science vocabulary journal'
+    'Biology': [
+      'Connect biological processes to real-world examples',
+      'Use diagrams and flowcharts to map biological processes',
+      'Practice explaining biological concepts in your own words',
+      'Make connections between different biological systems',
+      'Keep a biology vocabulary journal with key terms'
     ],
     'Physics': [
       'Master the fundamental concepts before moving to complex problems',
@@ -303,8 +303,8 @@ function generateDetailedFallbackReply(subject, question) {
     ]
   };
 
-  const intro = subjectIntros[subject] || subjectIntros['Science'];
-  const tips = studyTips[subject] || studyTips['Science'];
+  const intro = subjectIntros[subject] || subjectIntros['Biology'];
+  const tips = studyTips[subject] || studyTips['Biology'];
   
   let response = `## 🧠 ${subject} Learning Assistant\n\n`;
   response += `${intro}\n\n`;
